@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Результат</h1>
+
+  <div class="main"></div>
+
+  <script>
+    const render = data => {
+      console.log(data);
+  data.forEach(item => {
+    const order = document.createElement('div');
+    order.textContent = `Имя: ${item.name}, Фамилия ${item.surname}, Телефон ${item.tel}`
+
+    document.querySelector('.main').prepend(order)
+  })
+};
+
+fetch('./api/order').then(data => data.json()).then(render);
+
+  </script>
+
+</body>
+</html>
